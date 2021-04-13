@@ -18,7 +18,7 @@ rawDataDFile <- paste(rawDataDir, "/", "rawData.zip", sep = "")
 dataDir <- "./data"
 
 # Downloading data and creating folder in case there is no such directory
-# you can check the directory created in the current working environment: getwd()
+# you can check the directory created in the current working environment:getwd()
 
 if (!file.exists(rawDataDir)) {
   dir.create(rawDataDir)

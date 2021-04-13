@@ -1,7 +1,7 @@
 # To run the script and fulfill the tasks we have used RStudio.
 # First we are loading required libraries 
 # If you have not then please install them using package.install('package name')
-# I have tried different packages 
+# I have tried results with different packages 
 library(dplyr)
 library(tidyr)
 library(reshape2)
@@ -14,7 +14,7 @@ library(files)
 rawDataDir <- "./rawData"
 rawDataUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 rawDataFilename <- "rawData.zip"
-rawDataDFn <- paste(rawDataDir, "/", "rawData.zip", sep = "")
+rawDataDFile <- paste(rawDataDir, "/", "rawData.zip", sep = "")
 dataDir <- "./data"
 
 # Downloading data and creating folder in case there is no such directory
@@ -22,11 +22,11 @@ dataDir <- "./data"
 
 if (!file.exists(rawDataDir)) {
   dir.create(rawDataDir)
-  download.file(url = rawDataUrl, destfile = rawDataDFn)
+  download.file(url = rawDataUrl, destfile = rawDataDFile)
 }
 if (!file.exists(dataDir)) {
   dir.create(dataDir)
-  unzip(zipfile = rawDataDFn, exdir = dataDir)
+  unzip(zipfile = rawDataDFile, exdir = dataDir)
 }
 
 
@@ -81,3 +81,6 @@ tidyData <- dcast(meltedData, Subject + Activity ~ variable, mean)
 
 # saving the tidy set in current folder by name 'tidy_dataset.txt'
 write.table(tidyData, "./tidy_dataset.txt", row.names = FALSE, quote = FALSE)
+
+
+# Thank you :)
